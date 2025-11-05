@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MentorMoment - Verbind Studenten & Bedrijven</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --orange: #FFA500;
+    --dark-brown: #3E2C23;
+    --black: #000000;
+    --white: #FFFFFF;
+    --grey: #F5F5F5;
+    --light-brown: #D9C1B1;
+}
+
+/* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--dark-brown);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: var(--orange);
+    margin-bottom: 20px;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: var(--dark-brown);
+}
+
+.cta-btn {
+    display: inline-block;
+    background-color: var(--orange);
+    color: var(--white);
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: var(--dark-brown);
+    color: var(--orange);
+    transform: scale(1.05);
+}
+
+.waiting {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--dark-brown);
+}
+
+.features {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature {
+    background-color: var(--white);
+    border: 2px solid var(--dark-brown);
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    border-color: var(--orange);
+    transform: translateY(-5px);
+}
+
+.feature h4 {
+    margin-bottom: 10px;
+    color: var(--orange);
+}
+
+.feature p {
+    color: var(--dark-brown);
+}
+
+/* SIGNUP FORM BEDRIJVEN */
+#signup {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#signup form {
+    background: linear-gradient(135deg, var(--light-brown), var(--dark-brown));
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    color: var(--white);
+    text-align: center;
+}
+
+#signup form h2 {
+    margin-bottom: 20px;
+}
+
+#signup form input, #signup form select, #signup form button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+}
+
+#signup form input, #signup form select {
+    border: 1px solid var(--white);
+    background-color: rgba(255,255,255,0.1);
+    color: var(--white);
+}
+
+#signup form input::placeholder,
+#signup form select {
+    color: var(--white);
+    opacity: 0.9;
+}
+
+#signup form button {
+    background-color: var(--orange);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#signup form button:hover {
+    background-color: var(--white);
+    color: var(--orange);
+}
+
+#signup-result {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--white);
+}
+
+/* SPONSOR SECTION FULL WIDTH */
+.sponsor-section {
+    width: 100%;
+    background: linear-gradient(90deg, #1C1C1C, #000000); /* donkergrijs naar zwart */
+    padding: 40px 20px 40px 20px; /* padding boven 40px */
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.sponsor-box {
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+    color: var(--white);
+    padding: 25px 30px; /* minder hoog */
+    border-radius: 12px;
+}
+
+.sponsor-box h3 {
+    font-size: 2rem;
+    color: var(--orange);
+    margin-bottom: 10px;
+}
+
+.sponsor-box p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.sponsor-box input, .sponsor-box button {
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+}
+
+.sponsor-box button {
+    background-color: var(--orange);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sponsor-box button:hover {
+    background-color: var(--white);
+    color: var(--orange);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    color: var(--white);
+    background: linear-gradient(90deg, var(--dark-brown), #3A261D);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .sponsor-section {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>MentorMoment</h1>
+        <p>Verbindt STEM-leerlingen van het middelbaar onderwijs met uw bedrijf via korte mentor- en kennismomenten. Ontdek talent, versterk uw imago en inspireer de volgende generatie.</p>
+        <a href="#signup" class="cta-btn">Registreer uw bedrijf voor €70/maand</a>
+        <div class="waiting">Nog 45 bedrijven wachten momenteel</div>
+    </header>
+
+    <div class="features">
+        <div class="feature">
+            <h4>Eenvoudig mentorbeheer</h4>
+            <p>Uw medewerkers geven zelf hun beschikbaarheid op, studenten boeken direct een tijdslot. Geen administratie rompslomp meer.</p>
+        </div>
+        <div class="feature">
+            <h4>Inspiratie voor studenten</h4>
+            <p>Laat leerlingen ontdekken wat werken in uw sector écht inhoudt en inspireer toekomstige talenten.</p>
+        </div>
+        <div class="feature">
+            <h4>Flexibel & Efficiënt</h4>
+            <p>Onze digitale oplossing zorgt ervoor dat mentorafspraken binnen enkele minuten gepland zijn, volledig op uw eigen tijdschema afgestemd.</p>
+        </div>
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <section id="signup">
+        <form id="company-form">
+            <h2>Schrijf uw bedrijf in</h2>
+            <input type="text" name="company" placeholder="Bedrijfsnaam" required>
+            <input type="text" name="contact" placeholder="Contactpersoon" required>
+            <input type="email" name="email" placeholder="E-mail" required>
+            <select name="package">
+                <option value="70">€70/maand - Onbeperkte mentorafspraken</option>
+            </select>
+            <button type="submit">Aanmelden</button>
+            <div id="signup-result" class="waiting"></div>
+        </form>
+    </section>
+</div>
+
+<!-- SPONSOR SECTION FULL WIDTH -->
+<section class="sponsor-section">
+    <div class="sponsor-box">
+        <h3>Sponsor MentorMoment</h3>
+        <p>Promoot uw merk op MentorMoment voor slechts €50/maand. Hier kunt u reclame plaatsen voor uw bedrijf en zichtbaar zijn bij onze bezoekers.</p>
+        <form id="sponsor-form">
+            <input type="text" name="sponsor" placeholder="Naam bedrijf" required>
+            <input type="email" name="sponsor-email" placeholder="E-mail" required>
+            <button type="submit">Sponsor ons</button>
+            <div id="sponsor-result" class="waiting"></div>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 MentorMoment</p>
+    <p>Alle rechten voorbehouden.</p>
+</footer>
+
+<script>
+let companyCount = 45;
+let sponsorCount = 12;
+
+const companyForm = document.getElementById('company-form');
+const signupResult = document.getElementById('signup-result');
+
+companyForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    companyCount++;
+    signupResult.innerText = "Bedankt voor uw registratie! U staat nu op de wachtlijst.";
+});
+
+const sponsorForm = document.getElementById('sponsor-form');
+const sponsorResult = document.getElementById('sponsor-result');
+
+sponsorForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    sponsorCount++;
+    sponsorResult.innerText = "Bedankt voor uw interesse! Wij nemen contact op.";
+});
+</script>
+
+</body>
+</html>
