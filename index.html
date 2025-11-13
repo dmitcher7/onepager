@@ -9,10 +9,6 @@
 <link rel="icon" href="favicon.ico">
 <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
 <link rel="icon" href="./favicon.ico" type="image/x-icon">
-
-
-
-
 <link rel="icon" href="../favicon.ico" />
 <link rel="icon" href="./favicon.ico" />
 <link rel="icon" href="/favicon.ico" />
@@ -178,7 +174,7 @@ companyForm.addEventListener('submit', async (e)=>{
     const email = companyForm.email.value.trim();
     if(name && contact && email){
         await increment('companies');
-        showPopup("Bedankt! U wordt doorverwezen naar een korte vragenlijst.", "https://www.linkedin.com/groups/8791652/");
+        showPopup("Bedankt! U wordt doorverwezen naar onze vragenlijst.", "https://www.linkedin.com/groups/8791652/");
         companyForm.reset();
     }
 });
@@ -187,20 +183,20 @@ companyForm.addEventListener('submit', async (e)=>{
 mainRegister.addEventListener('click', async (e)=>{
     e.preventDefault();
     await increment('companies');
-    showPopup("Bedankt! U wordt doorverwezen naar een korte vragenlijst.", "https://www.linkedin.com/groups/8791652/");
+    showPopup("Bedankt! U wordt doorverwezen naar onze vragenlijst.", "https://www.linkedin.com/groups/8791652/");
 });
 
-//// Sponsor form
-//sponsorForm.addEventListener('submit', async (e)=>{
-//    e.preventDefault();
-//    const name = sponsorForm.sponsor.value.trim();
-//    const email = sponsorForm['sponsor-email'].value.trim();
-//    if(name && email){
-//        await increment('sponsors');
-//        showPopup("Bedankt! U bent op de wachtlijst geplaatst. We nemen binnenkort contact met u op via e-mail.");
-//        sponsorForm.reset();
-//    }
-//});
+// Sponsor form
+sponsorForm.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const name = sponsorForm.sponsor.value.trim();
+    const email = sponsorForm['sponsor-email'].value.trim();
+    if(name && email){
+        await increment('sponsors');
+        showPopup("Bedankt! U bent op de wachtlijst geplaatst. We nemen binnenkort contact met u op via e-mail.");
+        sponsorForm.reset();
+    }
+});
 
 // initial load
 fetchCounts();
