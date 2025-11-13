@@ -6,14 +6,7 @@
 <title>MentorMoment</title>
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-<link rel="icon" href="favicon.ico">
-<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-<link rel="icon" href="./favicon.ico" type="image/x-icon">
-<link rel="icon" href="../favicon.ico" />
-<link rel="icon" href="./favicon.ico" />
-<link rel="icon" href="/favicon.ico" />
-<link rel="icon" href="../favicon.ico" />
-<link rel="icon" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 
 
@@ -44,6 +37,16 @@ header p{font-size:1.2rem;}
 #signup form button{background-color:var(--orange);color:var(--white);font-weight:bold;cursor:pointer;transition:all 0.3s ease;}
 #signup form button:hover{background-color:var(--white);color:var(--orange);}
 
+    
+     
+    
+    
+    
+    
+    
+    
+    
+    
 /* SPONSOR SECTION */
 .sponsor-section {
     width: 100%;
@@ -53,6 +56,32 @@ header p{font-size:1.2rem;}
     display: flex;
     justify-content: center;
 }
+    
+.move {
+    display: flex;              /* Flexbox activeren */
+    justify-content: center;    /* Horizontaal centreren */
+    align-items: center;        /* Verticaal centreren */
+    min-height: 10vh;          /* Zorg dat de sectie de hele viewporthoogte beslaat */
+    text-align: center;         /* Tekst centreren */
+    padding: 20px;              /* Optioneel: wat padding */
+    background: #1C1C1C;        /* Optioneel: achtergrondkleur */
+    color: #fff;                /* Tekstkleur */
+}
+
+.move div {
+    max-width: 500px;           /* Beperk de breedte van de inhoud */
+    width: 100%;
+}
+    
+.move2 {
+    padding-bottom: 5px;
+}
+
+.move3 {
+    padding: 5px;
+    margin: 5px;
+}
+
 .sponsor-box {
     width: 100%;
     max-width: 1000px;
@@ -101,15 +130,17 @@ footer a:hover{color:var(--white);}
 </div>
 
 <!-- FULL WIDTH ZWARTE SPONSOR SECTION -->
-<section>
+<section class="move">
     <div>
-       <a href="https://www.instagram.com/mentormomentbe/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+       
         <h3>Sponsor MentorMoment</h3>
-        <p>Hier uw reclame! Promoot uw merk op MentorMoment — voor slechts €50 per maand.</p>
+        <p>Hier uw reclame! Promoot uw merk...</p>
+        <p class="move2">...voor slechts €50 per maand.</p>
+        
         <form id="sponsor-form">
-            <input type="text" name="sponsor" placeholder="Naam bedrijf" required>
-            <input type="email" name="sponsor-email" placeholder="E-mail" required>
-            <button type="submit">Sponsor ons</button>
+            <input class="move3" type="text" name="sponsor" placeholder="Naam bedrijf" required>
+            <input class="move3" type="email" name="sponsor-email" placeholder="E-mail" required>
+            <button class="move3" type="submit">Sponsor ons</button>
         </form>
         <div id="sponsor-waiting" class="waiting">Nog 0 sponsors staan in de wachtlijst.</div>
     </div>
@@ -117,7 +148,7 @@ footer a:hover{color:var(--white);}
 
 <footer>
     <p>&copy; 2025 MentorMoment | Alle rechten voorbehouden.</p>
-    
+    <a href="https://www.instagram.com/mentormomentbe/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
 </footer>
 
 <div class="popup-overlay" id="popup-overlay"></div>
