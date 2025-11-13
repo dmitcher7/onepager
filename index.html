@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MentorMoment</title>
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<link rel="icon" href="favicon.ico">
+
+
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -174,17 +178,17 @@ mainRegister.addEventListener('click', async (e)=>{
     showPopup("Bedankt! U wordt doorverwezen naar een korte vragenlijst.", "https://www.linkedin.com/groups/8791652/");
 });
 
-// Sponsor form
-sponsorForm.addEventListener('submit', async (e)=>{
-    e.preventDefault();
-    const name = sponsorForm.sponsor.value.trim();
-    const email = sponsorForm['sponsor-email'].value.trim();
-    if(name && email){
-        await increment('sponsors');
-        showPopup("Bedankt! U bent op de wachtlijst geplaatst. We nemen binnenkort contact met u op via e-mail.");
-        sponsorForm.reset();
-    }
-});
+//// Sponsor form
+//sponsorForm.addEventListener('submit', async (e)=>{
+//    e.preventDefault();
+//    const name = sponsorForm.sponsor.value.trim();
+//    const email = sponsorForm['sponsor-email'].value.trim();
+//    if(name && email){
+//        await increment('sponsors');
+//        showPopup("Bedankt! U bent op de wachtlijst geplaatst. We nemen binnenkort contact met u op via e-mail.");
+//        sponsorForm.reset();
+//    }
+//});
 
 // initial load
 fetchCounts();
