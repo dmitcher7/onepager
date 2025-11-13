@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paljas</title>
+<title>MentorMoment</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/x-icon" href="./favicon.ico">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -171,7 +171,7 @@ companyForm.addEventListener('submit', async function(e){
     const email = companyForm.querySelector('input[name="email"]').value.trim();
     if(name && contact && email){
         await increment('companies');
-        showPopup("Bedankt! U wordt doorverwezen naar een korte vragenlijst. Na de vragenlijst wordt u automatisch in de wachtrij geplaatst en nemen we spoedig contact met u op.","YOUR_GOOGLE_FORM_URL_HIER");
+        showPopup("Bedankt! U wordt doorverwezen naar een korte vragenlijst. Na de vragenlijst wordt u automatisch in de wachtrij geplaatst en nemen we spoedig contact met u op.","https://docs.google.com/forms/u/0/");
         companyForm.reset();
     }
 });
@@ -179,7 +179,7 @@ companyForm.addEventListener('submit', async function(e){
 mainRegister.addEventListener('click', async function(e){
     e.preventDefault();
     await increment('companies');
-    showPopup("Bedankt! U wordt doorverwezen naar een korte vragenlijst. Na de vragenlijst wordt u automatisch in de wachtrij geplaatst en nemen we spoedig contact met u op.","YOUR_GOOGLE_FORM_URL_HIER");
+    showPopup("Bedankt! U wordt doorverwezen naar een korte vragenlijst. Na de vragenlijst wordt u automatisch in de wachtrij geplaatst en nemen we spoedig contact met u op.","https://docs.google.com/forms/u/0/");
 });
 
 sponsorForm.addEventListener('submit', async function(e){
