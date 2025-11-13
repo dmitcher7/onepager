@@ -168,24 +168,27 @@ const popupOverlay = document.getElementById('popup-overlay');
 // fetch current counts
 async function fetchCounts() {
     try {
-        const res = await fetch('/.netlify/functions/getCounts');
+        const res = await fetch('/api/getCounts');
         const data = await res.json();
         companyWaiting.innerText = `Nog ${data.companies} bedrijven staan in de wachtlijst.`;
         sponsorWaiting.innerText = `Nog ${data.sponsors} sponsors staan in de wachtlijst.`;
-    } catch(err){console.error(err);}
+    } catch(err){
+        console.error(err);
+    }
 }
 
 // increment counters
 async function increment(type){
     try {
-        const res = await fetch('/.netlify/functions/incrementCount', {
-            method:'POST',
-            headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({type})
+        await fetch('/api/incrementCount', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ type })
         });
-        await res.json();
         fetchCounts();
-    } catch(err){console.error(err);}
+    } catch(err){
+        console.error(err);
+    }
 }
 
 // popup
