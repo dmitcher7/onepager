@@ -1,23 +1,23 @@
-import { createClient } from '@supabase/supabase-js';
+const { Pool } = require('@neondatabase/serverless');
+const pool = new Pool({
+    connectionString: process.env.NETLIFY_DATABASE_URL
+});
 
-// Haal je database URL en key uit environment variables
-const supabaseUrl = process.env.NETLIFY_DATABASE_URL;
-const supabaseKey = process.env.NETLIFY_DATABASE_KEY;
-
-const supabase = createClient(supabaseUrl, supabaseKey);
-
-export async function handler(event, context) {
-    try {
-        const { data } = await supabase.from('counters').select('*');
-        const counts = {};
-        data.forEach(row => counts[row.type] = row.count);
-
+exports.handler = async function(event, context){
+    try{
+        const res = await pool.query('SELECT * FROM counters;');
+        let companies=0, sponsors=0;
+        res.rows.forEach(r=>{
+            if(r.type==='companies') companies = r.count;
+            if(r.type==='sponsors') sponsors = r.count;
+        });
         return {
-            statusCode: 200,
-            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-            body: JSON.stringify(counts)
+            statusCode:200,
+            headers:{'Content-Type':'application/json','Access-Control-Allow-Origin':'*'},
+            body: JSON.stringify({companies, sponsors})
         };
-    } catch (err) {
-        return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
+    } catch(err){
+        console.error(err);
+        return {statusCode:500, body:JSON.stringify({error:'DB error'})};
     }
-}
+};
