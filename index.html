@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MentorMoment</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -43,7 +44,6 @@ footer a:hover{color:var(--white);}
     <header>
         <h1>MentorMoment</h1>
         <p>Verbindt afstuderende studenten met uw bedrijf via korte mentor- en kennismomenten. Help jong talent richting te geven in hun carrièrekeuze, versterk uw bedrijfsimago en inspireer de professionals van morgen.</p>
-
         <a href="#signup" id="main-register" class="cta-btn">Registreer uw bedrijf voor €100/maand</a>
         <div class="waiting" id="company-waiting">Nog 0 bedrijven staan in de wachtlijst.</div>
     </header>
@@ -61,21 +61,21 @@ footer a:hover{color:var(--white);}
             <button type="submit">Aanmelden</button>
         </form>
     </section>
-</div>
 
-<!-- Sponsor formulier -->
-<section class="sponsor-section">
-    <div class="sponsor-box">
-        <h3>Sponsor MentorMoment</h3>
-        <p>Hier uw reclame! Promoot uw merk op MentorMoment — voor slechts €50 per maand.</p>
-        <form id="sponsor-form">
-            <input type="text" name="sponsor" placeholder="Naam bedrijf" required>
-            <input type="email" name="sponsor-email" placeholder="E-mail" required>
-            <button type="submit">Sponsor ons</button>
-        </form>
-        <div id="sponsor-waiting" class="waiting">Nog 0 sponsors staan in de wachtlijst.</div>
-    </div>
-</section>
+    <!-- Sponsor formulier -->
+    <section class="sponsor-section">
+        <div class="sponsor-box">
+            <h3>Sponsor MentorMoment</h3>
+            <p>Hier uw reclame! Promoot uw merk op MentorMoment — voor slechts €50 per maand.</p>
+            <form id="sponsor-form">
+                <input type="text" name="sponsor" placeholder="Naam bedrijf" required>
+                <input type="email" name="sponsor-email" placeholder="E-mail" required>
+                <button type="submit">Sponsor ons</button>
+            </form>
+            <div id="sponsor-waiting" class="waiting">Nog 0 sponsors staan in de wachtlijst.</div>
+        </div>
+    </section>
+</div>
 
 <footer>
     <p>&copy; 2025 MentorMoment | Alle rechten voorbehouden.</p>
@@ -94,6 +94,7 @@ const mainRegister = document.getElementById('main-register');
 const popup = document.getElementById('popup');
 const popupOverlay = document.getElementById('popup-overlay');
 
+// fetch current counts
 async function fetchCounts() {
     try {
         const res = await fetch('/.netlify/functions/getCounts');
@@ -103,6 +104,7 @@ async function fetchCounts() {
     } catch(err){console.error(err);}
 }
 
+// increment counters
 async function increment(type){
     try {
         const res = await fetch('/.netlify/functions/incrementCount', {
@@ -110,11 +112,12 @@ async function increment(type){
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify({type})
         });
-        const data = await res.json();
+        await res.json();
         fetchCounts();
     } catch(err){console.error(err);}
 }
 
+// popup
 function showPopup(message, redirectURL=null){
     popup.querySelector('p').innerText = message;
     popup.style.display = 'block';
@@ -126,7 +129,7 @@ function showPopup(message, redirectURL=null){
     }, 4000);
 }
 
-// Bedrijf form
+// Company form
 companyForm.addEventListener('submit', async (e)=>{
     e.preventDefault();
     const name = companyForm.company.value.trim();
@@ -134,15 +137,16 @@ companyForm.addEventListener('submit', async (e)=>{
     const email = companyForm.email.value.trim();
     if(name && contact && email){
         await increment('companies');
-        showPopup("Bedankt! U wordt doorverwezen naar een korte vragenlijst. Na de vragenlijst wordt u automatisch in de wachtrij geplaatst en nemen we spoedig contact met u op.","YOUR_GOOGLE_FORM_URL_HIER");
+        showPopup("Bedankt! U wordt doorverwezen naar een korte vragenlijst.", "https://www.linkedin.com/groups/8791652/");
         companyForm.reset();
     }
 });
 
+// main register button
 mainRegister.addEventListener('click', async (e)=>{
     e.preventDefault();
     await increment('companies');
-    showPopup("Bedankt! U wordt doorverwezen naar een korte vragenlijst. Na de vragenlijst wordt u automatisch in de wachtrij geplaatst en nemen we spoedig contact met u op.","YOUR_GOOGLE_FORM_URL_HIER");
+    showPopup("Bedankt! U wordt doorverwezen naar een korte vragenlijst.", "https://www.linkedin.com/groups/8791652/");
 });
 
 // Sponsor form
