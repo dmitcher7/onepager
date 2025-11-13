@@ -4,10 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MentorMoment</title>
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
 
+<link rel="shortcut icon" href="favicon.ico" />
+
+<link rel="icon" href="./favicon.ico" type="image/x-icon">
 
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -206,7 +208,7 @@ companyForm.addEventListener('submit', async (e)=>{
     const email = companyForm.email.value.trim();
     if(name && contact && email){
         await increment('companies');
-        showPopup("Bedankt! U wordt doorverwezen naar onze vragenlijst.", "https://www.linkedin.com/groups/8791652/");
+        showPopup("Bedankt! U wordt doorverwezen naar onze vragenlijst.", "https://forms.office.com/Pages/DesignPageV2.aspx?origin=NeoPortalPage&subpage=design&id=xTzTd7TJZkeVx-1bUV4czn3yNQ2QDc9IhGEsoZxH8KdUMzc3MFAzS0NDMkMzWE1RV1dZN0RKOTI5My4u");
         companyForm.reset();
     }
 });
@@ -215,7 +217,7 @@ companyForm.addEventListener('submit', async (e)=>{
 mainRegister.addEventListener('click', async (e)=>{
     e.preventDefault();
     await increment('companies');
-    showPopup("Bedankt! U wordt doorverwezen naar onze vragenlijst.", "https://www.linkedin.com/groups/8791652/");
+    showPopup("Bedankt! U wordt doorverwezen naar onze vragenlijst.", "https://forms.office.com/Pages/DesignPageV2.aspx?origin=NeoPortalPage&subpage=design&id=xTzTd7TJZkeVx-1bUV4czn3yNQ2QDc9IhGEsoZxH8KdUMzc3MFAzS0NDMkMzWE1RV1dZN0RKOTI5My4u");
 });
 
 // Sponsor form
