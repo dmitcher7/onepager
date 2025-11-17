@@ -211,7 +211,7 @@ companyForm.addEventListener('submit', async (e)=>{
     const email = companyForm.email.value.trim();
     if(name && contact && email){
         await increment('companies');
-        showPopup("Bedankt! U wordt doorverwezen naar onze vragenlijst.", "https://forms.office.com/Pages/DesignPageV2.aspx?origin=NeoPortalPage&subpage=design&id=xTzTd7TJZkeVx-1bUV4czn3yNQ2QDc9IhGEsoZxH8KdUMzc3MFAzS0NDMkMzWE1RV1dZN0RKOTI5My4u");
+        showPopup("Bedankt! U wordt doorverwezen naar onze vragenlijst.", "https://forms.office.com/Pages/ResponsePage.aspx?id=xTzTd7TJZkeVx-1bUV4czn3yNQ2QDc9IhGEsoZxH8KdUMzc3MFAzS0NDMkMzWE1RV1dZN0RKOTI5My4u");
         companyForm.reset();
     }
 });
@@ -220,7 +220,7 @@ companyForm.addEventListener('submit', async (e)=>{
 mainRegister.addEventListener('click', async (e)=>{
     e.preventDefault();
     await increment('companies');
-    showPopup("Bedankt! U wordt doorverwezen naar onze vragenlijst.", "https://forms.office.com/Pages/DesignPageV2.aspx?origin=NeoPortalPage&subpage=design&id=xTzTd7TJZkeVx-1bUV4czn3yNQ2QDc9IhGEsoZxH8KdUMzc3MFAzS0NDMkMzWE1RV1dZN0RKOTI5My4u");
+    showPopup("Bedankt! U wordt doorverwezen naar onze vragenlijst.", "https://forms.office.com/Pages/ResponsePage.aspx?id=xTzTd7TJZkeVx-1bUV4czn3yNQ2QDc9IhGEsoZxH8KdUMzc3MFAzS0NDMkMzWE1RV1dZN0RKOTI5My4u");
 });
 
 // Sponsor form
